@@ -1,26 +1,27 @@
 #include <stdio.h>
 #include <math.h>
 
-double integral(int untereG, int obereG, double c){
-    double fun[5] = {2, -1, -2, 3, 0};
-    double funI[5] = {0, 0, 0, 0, 0};
+double integral(double untereG, double obereG, double c){
+    double fun[4] = {2, -1, -2, 1};
+    double sum = 0;
+    double funSum1, funSum2;
 
-    for(int i=0; i<4; i++){
-        funI[i+1] = fun[i] / (i+1);
-    }
+    while(untereG < obereG){
+        funSum1 = 0;
+        funSum2 = 0;
+        for(int j=0; j<4; j++) {
+            funSum1 += fun[j]* pow(untereG, j);
+            funSum2 += fun[j]* pow((untereG+c), j);
+        }
 
-    double zOb, zUn = 0;
-    for(int i=0; i<sizeof(funI)/sizeof(double); i++) { // nicht die numerische Intergration!
-        zOb += funI[i]*(pow(obereG, i));
-        zUn += funI[i]*(pow(untereG, i));
+        sum += 1/2 * (funSum1+funSum2) * ((untereG+c) - untereG);
+        untereG += c;
     }
-    double erg = zOb - zUn;
-
-    for(int i=0; i<sizeof(funI) / sizeof(double); i++){
-        printf("%.2f\n", funI[i]);
-    }
+    return sum;
 }
 
-void main(){
-printf("%.2f", integral(-1,2,1));
+int main(){
+    printf("%.3f", integral(-1,2,0.01));
+
+    return 0;
 }
