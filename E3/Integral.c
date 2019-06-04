@@ -15,12 +15,15 @@ double integral(int untereG, int obereG, double c){
         zUn += funI[i]*(pow(untereG, i));
     }
     double erg = zOb - zUn;
-
+    return 0;
     for(int i=0; i<sizeof(funI) / sizeof(double); i++){
         printf("%.2f\n", funI[i]);
     }
+
 }
 
-void main(){
-printf("%.2f", integral(-1,2,1));
+int main(){
+    printf("%.2f", integral(-1,2,1));
+
+    return 0;
 }
