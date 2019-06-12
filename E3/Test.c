@@ -1,13 +1,9 @@
 #include <stdio.h>
 
+int main(){
 
-int main() {
-int x = 10, y = 100%30, i;
+    int b = 17;
+    int a;
 
-for(i=1; i<10; i++)
-
-if(x != y);
-
-printf("x = %d y = %d\n", x, y);
-return 0;
+    printf("%e", (float)b);
 }
