@@ -5,7 +5,7 @@ int* einsBisZehn(){
     int i = sizeof(feld)/sizeof(int);
     while(i>0){
         i--;
-        feld[10-i] = 20-i;
+        feld[10-i] = 10-i;
     }
     return &feld;
 }
